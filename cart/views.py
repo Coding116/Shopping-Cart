@@ -18,9 +18,9 @@ def index(request):
                 cart['foods'].append(food)
                 cart['prices'].append(price)
                 cart['total'] += price
+                return render(request, 'shoppingcart.html', cart)
             except ValueError:
                 pass  # You can handle invalid input better
 
-        return redirect('index')  # Prevent form resubmission on reload
 
     return render(request, 'shoppingcart.html', cart)
